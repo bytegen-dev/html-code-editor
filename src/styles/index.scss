@@ -300,7 +300,7 @@ button{
                         gap: 5px;
                         padding: 7px 10px;
                         border-radius: 1000px;
-                        background-color: #fff1;
+                        background-color: #fff0;
                         border: 1px solid #fff2;
                         cursor: pointer;
                         font-size: 15px;
@@ -311,21 +311,23 @@ button{
                             box-shadow: 0px 0px 10px #fff1 inset;
                         }
                         
+                        svg{
+                            color: #fff !important;
+                        }
+                        
                         &.active{
+                            box-shadow: 0px 0px 10px #fff1 inset;
                             transform: scale(1);
-                            // width: 100%;
-                            background-color: rgb(57, 101, 57);
-                            // border-bottom-right-radius: 0px;
-                            // border-bottom-left-radius: 0px;
-                            svg{
-                                color: #fff !important;
-                            }
+                            background-color: #fff1;
+                            
                         }
                     }
                     
                     #html{
-                        svg{
-                            color: $html;
+                        &.active{
+                            svg{
+                                color: $html !important;
+                            }
                         }
                         
                         // &.active{
@@ -334,8 +336,10 @@ button{
                     }
                     
                     #css{
-                        svg{
-                            color: $css;
+                        &.active{
+                            svg{
+                                color: $css !important;
+                            }
                         }
 
                         // &.active{
@@ -344,8 +348,10 @@ button{
                     }
                     
                     #js{
-                        svg{
-                            color: $javascript;
+                        &.active{
+                            svg{
+                                color: $javascript !important;
+                            }
                         }
 
                         // &.active{
