@@ -4,7 +4,9 @@ const CodePreview = () => {
   return (
     <>
         <div className="side preview">
-            Code Preview
+            <p>
+              Click <b>Run</b>
+            </p>
         </div>
     </>
   )

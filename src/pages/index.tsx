@@ -39,7 +39,7 @@ export default function Home() {
           </div>
         </section>
         <section className="button-holder">
-          <Link className="button outline" href={`/workspace/create`}>
+          <Link className="button outline" href={`/code`}>
             Get Started <FaArrowRight className="circular" />
           </Link>
         </section>
