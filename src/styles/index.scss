@@ -108,7 +108,7 @@ button{
     z-index: 10;
     top: 0;
     left: 0;
-    background-color: rgba($black-bg, 0.4);
+    background-color: rgba($black-bg, 0.5);
     
     .button{
         display: flex;
@@ -362,10 +362,36 @@ button{
                 &:first-child{
                     border-right: 1px solid #fff4;
                 }
-
+                
                 &.preview{
+                    z-index: 20;
+                    // backdrop-filter: blur(10px);
+                    overflow: visible;
+                    
+                    .drag-up{
+                        position: fixed;
+                        top: 0;
+                        transform: translateY(-50%);
+                        background-color: rgba($dark-bg, 0.8);
+                        border: 1px solid #fff4;
+                        display: none;
+                    }
+                    
                     @media screen and (max-width: 1000px) {
-                        transform: translateY(100%);
+                        background-color: rgba($black-bg, 0.5);
+                        border: 1px solid #fff4;
+                        width: calc(100% - 40px);
+                        border-radius: 20px;
+                        transform: translateY(calc(100% - 50px));
+                        transition: all 0.5s ease;
+                        
+                        .drag-up{
+                            display: flex;
+                        }
+
+                        &:hover{
+                            transform: translateY(calc(100% - 100px));
+                        }
                     }
                 }
             }
