@@ -82,7 +82,6 @@ const CodePage = () => {
     }`,
     js: `function clickButton() {
     window.parent.postMessage("buttonClicked", "*");
-    throw new Error ("Fake Error!! Please follow me on twtter @bytegen_dev")
     }
 
     const clickMeButton = document.getElementById("click-me");

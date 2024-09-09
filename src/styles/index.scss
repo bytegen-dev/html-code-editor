@@ -232,6 +232,10 @@ button{
             align-items: center;
             top: 0;
             border-bottom: 1px solid #fff4;
+
+            @media screen and (max-width: 1000px) {
+                border: none !important;
+            }
         }
 
         .bottom{
@@ -251,9 +255,14 @@ button{
                     position: absolute !important;
                     overflow: hidden;
 
+                    .head{
+                        border-bottom: 1px solid #fff4;
+                        // border-radius: 1000px;
+                        // width: fit-content !important;
+                    }
+
                     &:first-child{
                         border: none;
-                        border-bottom: 1px solid #fff4;
                     }
                 }
             }
