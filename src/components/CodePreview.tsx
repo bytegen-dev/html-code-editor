@@ -1,17 +1,28 @@
 import React, { useState } from 'react'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
+import { HiRefresh } from 'react-icons/hi';
 
 const CodePreview: React.FC<{ code: { css: string; html: string; js: string } }> = ({ code }) => {
-  const [showDisplay, setShowDisplay] = useState(false)
+  const [showDisplay, setShowDisplay] = useState(false);
+  const [refreshKey, setRefreshKey] = useState(0);
+
+  const refreshIframe = () => {
+    setRefreshKey(prevKey => prevKey + 1);
+  };
+
   return (
     <div className={`side preview ${showDisplay ? "show" : ""}`}>
-      <button className="button drag-up outline" onClick={()=>{
-        setShowDisplay(!showDisplay)
+      <button className="button drag-up outline" onClick={() => {
+        setShowDisplay(!showDisplay);
       }}>
         <FaChevronUp />
       </button>
+      <button className="button outline refresh" onClick={refreshIframe}>
+        Refresh <HiRefresh className='circular' />
+      </button>
       {code?.html ? <div className="iframe-holder">
         <iframe
+          key={refreshKey}
           title="Code Preview"
           srcDoc={`
             <html>

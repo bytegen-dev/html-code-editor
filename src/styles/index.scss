@@ -358,6 +358,7 @@ button{
                 &.preview{
                     z-index: 20;
                     overflow: visible;
+                    background-color: $black-bg !important;
 
                     .iframe-holder{
                         width: 100%;
@@ -385,6 +386,12 @@ button{
                         svg{
                             transition: all 0.3s ease;
                         }
+                    }
+
+                    .refresh{
+                        position: fixed;
+                        z-index: 4;
+                        bottom: 30px;
                     }
                     
                     @media screen and (max-width: 1000px) {
