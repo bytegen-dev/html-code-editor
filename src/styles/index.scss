@@ -22,6 +22,11 @@ $html: #f3541b;
 ::-webkit-scrollbar{
     height: 5px;
     width: 5px;
+
+    @media screen and (max-width: 600px) {
+        width: 0px;
+        height: 0px;
+    }
 }
 
 ::-webkit-scrollbar-button{
