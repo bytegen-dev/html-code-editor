@@ -54,7 +54,7 @@ const CodePage = () => {
       width: 30vw; /* Width of 30vw */
       height: 30vw; /* Height of 30vw */
       background-color: teal; /* Teal background */
-      filter: blur(20px); /* Blur effect */
+      filter: blur(10vw); /* Blur effect */
       transform: translate(-50%, -50%); /* Centering */
       opacity: 0.7;
       border-radius: 10000px;
