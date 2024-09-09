@@ -2,12 +2,11 @@ import React, { useState } from 'react'
 import Head from 'next/head'
 import CodeEditor from '@/components/CodeEditor'
 import CodePreview from '@/components/CodePreview'
-import { FaPlay, FaSpinner } from 'react-icons/fa'
-import { HiPlay, HiRefresh, HiShare } from 'react-icons/hi'
-import { HiOutlinePlay } from 'react-icons/hi2'
+import { HiShare } from 'react-icons/hi'
+import { HiOutlineRefresh } from 'react-icons/hi'
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
-import { HiOutlineRefresh } from 'react-icons/hi'; // Import spinner icon
+import { FaSpinner } from 'react-icons/fa'
 
 const CodePage = () => {
   const [code, setCode] = useState({
@@ -18,6 +17,7 @@ const CodePage = () => {
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="blur"></div>
   <h1>Hello, World!</h1>
   <button id="click-me">Click Me</button>
 </body>
@@ -40,11 +40,25 @@ const CodePage = () => {
       justify-content: center; 
       align-items: center; 
       height: 100vh; 
+      position: relative; /* Added for positioning */
     } 
     @keyframes gradient {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
+    }
+    .blur {
+      position: absolute; /* Positioning it absolutely */
+      top: 50%; /* Center vertically */
+      left: 50%; /* Center horizontally */
+      width: 30vw; /* Width of 30vw */
+      height: 30vw; /* Height of 30vw */
+      background-color: teal; /* Teal background */
+      filter: blur(20px); /* Blur effect */
+      transform: translate(-50%, -50%); /* Centering */
+      opacity: 0.7;
+      border-radius: 10000px;
+      z-index: -1; /* Behind other elements */
     }
     button {
       background-color: teal;
@@ -67,7 +81,7 @@ const CodePage = () => {
       100% { transform: rotate(360deg); }
     }`, // Updated CSS
     js: `function clickButton() {
-      alert("button clicked");
+      alert("Follow @bytegen_dev on Twitter ;)");
     }
 
     const clickMeButton = document.getElementById("click-me");
@@ -102,7 +116,7 @@ const CodePage = () => {
       <div className='page code'>
         <div className="top">
           <button className={`button outline deep-border ${isExporting ? 'spin' : ''}`} onClick={handleExport}>
-            {isExporting ? 'Exporting...' : 'Export'}
+            {isExporting ? 'Generating Files...' : 'Export'}
             {isExporting ? <FaSpinner className='circular' /> : <HiShare className='circular' />} 
           </button>
         </div>
