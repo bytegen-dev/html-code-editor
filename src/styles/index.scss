@@ -11,6 +11,7 @@ $html: #f3541b;
     padding: 0;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
+    color: inherit;
 
     &::selection{
         background-color: $javascript;
