@@ -21,7 +21,7 @@ const CodePage = () => {
   <h1>Hello, World!</h1>
   <button id="click-me">Click Me</button>
 </body>
-</html>`, // Updated HTML
+</html>`,
     css: `* { 
       margin: 0; 
       padding: 0; 
@@ -40,7 +40,7 @@ const CodePage = () => {
       justify-content: center; 
       align-items: center; 
       height: 100vh; 
-      position: relative; /* Added for positioning */
+      position: relative; 
     } 
     @keyframes gradient {
       0% { background-position: 0% 50%; }
@@ -48,17 +48,17 @@ const CodePage = () => {
       100% { background-position: 0% 50%; }
     }
     .blur {
-      position: absolute; /* Positioning it absolutely */
-      top: 50%; /* Center vertically */
-      left: 50%; /* Center horizontally */
-      width: 30vw; /* Width of 30vw */
-      height: 30vw; /* Height of 30vw */
-      background-color: teal; /* Teal background */
-      filter: blur(10vw); /* Blur effect */
-      transform: translate(-50%, -50%); /* Centering */
+      position: absolute; 
+      top: 50%; 
+      left: 50%; 
+      width: 30vw; 
+      height: 30vw; 
+      background-color: teal; 
+      filter: blur(10vw); 
+      transform: translate(-50%, -50%); 
       opacity: 0.7;
       border-radius: 10000px;
-      z-index: -1; /* Behind other elements */
+      z-index: -1; 
     }
     button {
       background-color: teal;
@@ -74,12 +74,12 @@ const CodePage = () => {
       transform: scale(1.05);
     }
     .spin {
-      animation: spin 1s linear infinite; // Add spin animation
+      animation: spin 1s linear infinite; 
     }
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
-    }`, // Updated CSS
+    }`,
     js: `function clickButton() {
       alert("Follow @bytegen_dev on Twitter ;)");
     }
@@ -88,13 +88,13 @@ const CodePage = () => {
 
     clickMeButton.addEventListener("click", () => {
       clickButton();
-    });`, // Updated JS
+    });`,
   });
 
-  const [isExporting, setIsExporting] = useState(false); // New state for exporting
+  const [isExporting, setIsExporting] = useState(false);
 
   const handleExport = async () => {
-    setIsExporting(true); // Set exporting state to true
+    setIsExporting(true);
     const zip = new JSZip();
     zip.file("index.html", code.html);
     zip.file("styles.css", code.css);

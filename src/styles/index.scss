@@ -56,18 +56,7 @@ $html: #f3541b;
         height: 50%;
         background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 50%, transparent 50%);
         background-size: 200% 100%;
-        // filter: drop-shadow(0px 0px 10px #fff1);
-        // animation: drop 1s ease forwards infinite alternate;
         
-        // @keyframes drop {
-        //     0%{
-        //         filter: drop-shadow(0px 0px 10px rgba(#fff, 0.025));
-        //     }
-        //     100%{
-        //         filter: drop-shadow(0px 0px 0px #fff0);
-        //     }
-        // }
-
         @media screen and (max-width: 700px) {
             width: 300%;
             height: 40%;
@@ -79,7 +68,6 @@ $html: #f3541b;
         
         @media screen and (max-width: 700px) {
             transform: translateX(5%);
-            // top: 10%;
         }
     }
     &::after {
@@ -88,7 +76,6 @@ $html: #f3541b;
         
         @media screen and (max-width: 700px) {
             transform: translateX(-5%);
-            // right: 10%;
         }
     }
 }
@@ -116,7 +103,6 @@ button{
         align-items: center;
         gap: 10px;
         padding: 7px 7px;
-        // min-height: 45px;
         cursor: pointer;
         transition: all 0.3s ease;
         backdrop-filter: blur(10px);
@@ -182,15 +168,15 @@ button{
             font-size: 18px;
 
             &:first-child{
-                color: $html; // HTML logo color
+                color: $html;
             }
 
             &:nth-child(2){
-                color: $css; // CSS logo color
+                color: $css;
             }
 
             &:nth-child(3){
-                color: $javascript; // JavaScript logo color
+                color: $javascript;
             }
         }
     }
@@ -249,8 +235,6 @@ button{
             top: 70px;
             width: 100%;
             display: flex;
-            // justify-content: center;
-            align-items: center;
 
             @media screen and (max-width: 1000px) {
                 flex-direction: column;
@@ -290,11 +274,6 @@ button{
                     overflow: hidden;
 
                     @media screen and (max-width: "1000px") {
-                        // justify-content: flex-start;
-                        // &::-webkit-scrollbar{
-                        //     height: 5px;
-                        //     background-color: transparent !important;
-                        // }
                     }
 
                     .tab{
@@ -323,7 +302,6 @@ button{
                             box-shadow: 0px 0px 10px #fff1 inset;
                             transform: scale(1);
                             background-color: #fff1;
-                            
                         }
                     }
                     
@@ -333,10 +311,6 @@ button{
                                 color: $html !important;
                             }
                         }
-                        
-                        // &.active{
-                        //     background-color: $html;
-                        // }
                     }
                     
                     #css{
@@ -345,10 +319,6 @@ button{
                                 color: $css !important;
                             }
                         }
-
-                        // &.active{
-                        //     background-color: $css;
-                        // }
                     }
                     
                     #js{
@@ -357,15 +327,6 @@ button{
                                 color: $javascript !important;
                             }
                         }
-
-                        // &.active{
-                        //     background-color: $javascript;
-                        //     color: #000000 !important;
-                            
-                        //     svg{
-                        //         color: #000000 !important;
-                        //     }
-                        // }
                     }
                 }
 
@@ -396,7 +357,6 @@ button{
                 
                 &.preview{
                     z-index: 20;
-                    // backdrop-filter: blur(10px);
                     overflow: visible;
 
                     .iframe-holder{
@@ -431,6 +391,7 @@ button{
                         background-color: rgba($black-bg, 0.5);
                         border: 1px solid #fff4;
                         width: calc(100% - 40px);
+                        left: 20px;
                         border-radius: 20px;
                         transform: translateY(calc(100% - 50px));
                         transition: all 0.5s ease;
@@ -451,6 +412,7 @@ button{
                             border-radius: 0px;
                             border-color: #fff0;
                             border-top-color: #fff4;
+                            left: 0px;
                         
                             .drag-up{
                                 svg{

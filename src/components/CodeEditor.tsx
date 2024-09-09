@@ -31,7 +31,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ setCode: propsSetCode, code }) 
 
   const handleCodeChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newCode = { ...codeState, [currentTab]: e.target.value };
-    propsSetCode(newCode); // Update parent state
+    propsSetCode(newCode);
     setCodeState(newCode)
   };
 
@@ -58,7 +58,7 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ setCode: propsSetCode, code }) 
       </div>
       <div className="code-holder">
         <textarea
-          value={codeState[currentTab as keyof typeof codeState]} // Cast currentTab to the correct type
+          value={codeState[currentTab as keyof typeof codeState]}
           onChange={handleCodeChange}
           rows={10}
           style={{ width: '100%' }}
