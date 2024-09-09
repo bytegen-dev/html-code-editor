@@ -1,6 +1,6 @@
 {
-  "name": "Bytegen Code Editor",
-  "short_name": "CodeE",
+  "name": "Bytegen CodEditor",
+  "short_name": "CodE",
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#050505",
