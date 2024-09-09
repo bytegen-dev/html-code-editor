@@ -31,7 +31,6 @@ const CodePage = () => {
     body {
       background-color: #121212; 
       background-image: linear-gradient(45deg, #0000, #000);
-      background-size: 400% 400%;
       animation: gradient 15s ease infinite;
       color: #ffffff; 
       display: flex; 
@@ -41,11 +40,6 @@ const CodePage = () => {
       align-items: center; 
       height: 100vh; 
       position: relative; 
-    } 
-    @keyframes gradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
     }
     .blur {
       position: absolute; 
@@ -72,13 +66,6 @@ const CodePage = () => {
     button:hover {
       box-shadow: 0px 0px 10px #fff5; 
       transform: scale(1.05);
-    }
-    .spin {
-      animation: spin 1s linear infinite; 
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
     }`,
     js: `function clickButton() {
       alert("Hi. Follow me on Twitter @bytegen_dev")
