@@ -404,6 +404,10 @@ button{
                         transition: all 0.5s ease;
                         height: calc(100% - 100px);
                         bottom: 0;
+
+                        .error-message{
+                            border-radius: 20px;
+                        }
                         
                         .drag-up{
                             display: flex;
@@ -426,6 +430,10 @@ button{
                                     transform: rotate(180deg);
                                 }
                             }
+
+                            .error-message{
+                                border-radius: 0px;
+                            }
                         }
                     }
                 }
@@ -444,4 +452,19 @@ button{
             transform: rotate(-720deg);
         }
     }
+}
+
+.error-message{
+    width: 100%;
+    position: fixed;
+    z-index: 3;
+    bottom: 0px;
+    text-align: center;
+    padding: 30px 50px;
+    padding-bottom: 150px;
+    height: calc(100%);
+    overflow-y: scroll;
+    background-color: #000c;
+    color: red !important;
+    transition: all 0.5s ease;
 }

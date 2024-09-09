@@ -81,7 +81,8 @@ const CodePage = () => {
       100% { transform: rotate(360deg); }
     }`,
     js: `function clickButton() {
-      alert("Follow @bytegen_dev on Twitter ;)");
+    window.parent.postMessage("buttonClicked", "*");
+    throw new Error ("Fake Error!! Please follow me on twtter @bytegen_dev")
     }
 
     const clickMeButton = document.getElementById("click-me");

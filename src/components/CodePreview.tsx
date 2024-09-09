@@ -1,13 +1,44 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
 import { HiRefresh } from 'react-icons/hi';
 
 const CodePreview: React.FC<{ code: { css: string; html: string; js: string } }> = ({ code }) => {
   const [showDisplay, setShowDisplay] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
+  const [error, setError] = useState<any | null>(null);
 
   const refreshIframe = () => {
     setRefreshKey(prevKey => prevKey + 1);
+    setError(null);
+  };
+
+  const handleError = (error:any) => {
+    console.error(error)
+    setError(error);
+  };
+
+  const clickedButtonLol = () => {
+    console.log("it works")
+    setError(error);
+  };
+
+  useEffect(() => {
+    const handleMessage = (event:any) => {
+      if (event.data.type === "errorFound") {
+        console.error("Error in iframe:", event.data);
+        handleError(event.data)
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+
+    return () => {
+      window.removeEventListener("message", handleMessage);
+    };
+  }, []);
+
+  const clearError = () => {
+    setError(null);
   };
 
   return (
@@ -31,16 +62,46 @@ const CodePreview: React.FC<{ code: { css: string; html: string; js: string } }>
               </head>
               <body>
                 ${code.html}
-                <script>${code.js}</script>
+                <script>
+                  // Catching any runtime errors and syntax errors
+                  window.onerror = function(message, source, lineno, colno, error) {
+                    window.parent.postMessage(
+                      { type: 'errorFound', message, source, lineno, colno, error: error?.message || 'Unknown Error' },
+                      '*'
+                    );
+                    return true; // Prevent the default browser error handling
+                  };
+
+                  window.addEventListener('error', function(event) {
+                    window.parent.postMessage(
+                      { type: 'errorFound', message: event.message, source: event.filename, lineno: event.lineno, colno: event.colno, error: event.error?.message || 'Unknown Error' },
+                      '*'
+                    );
+                  });
+
+                  // Your actual code
+                  try {
+                    ${code.js}
+                  } catch (error) {
+                    // Catch any errors within the code execution
+                    window.parent.postMessage({ type: 'errorFound', error: error.message }, '*');
+                  }
+                </script>
               </body>
             </html>
           `}
           style={{ width: '100%', height: '100%', border: 'none' }}
+          onLoad={clearError}
+          onError={handleError}
+          onErrorCapture={handleError}
         />
+
+
       </div> :
       <p>
         ...
       </p>}
+      {error && <p className="error-message">{error?.message || "an error occured"}</p>}
     </div>
   );
 };
