@@ -19,10 +19,15 @@ const CodePreview: React.FC<{ code: { css: string; html: string; js: string } }>
 
   useEffect(() => {
     const handleMessage = (event:any) => {
+      if (event.data.type === "buttonClicked") {
+        alert("Hi. Follow me on Twitter @bytegen_dev")
+      }
+      
       if (event.data.type === "errorFound") {
         console.error("Error in iframe:", event.data);
         handleError(event.data)
       }
+      
     };
 
     window.addEventListener("message", handleMessage);
