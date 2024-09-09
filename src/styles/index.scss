@@ -262,7 +262,7 @@ button{
                     }
 
                     &:first-child{
-                        border: none;
+                        border: none !important;
                     }
                 }
             }
