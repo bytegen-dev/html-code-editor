@@ -1,19 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa'
 
-const CodePreview = () => {
+const CodePreview: React.FC<{ code: { css: string; html: string; js: string } }> = ({ code }) => {
+  const [showDisplay, setShowDisplay] = useState(false)
   return (
-    <>
-        <div className="side preview">
-            <button className="button drag-up outline">
-              show display <FaChevronUp className='circular' />
-            </button>
-            <p>
-              Click <b>Run</b>
-            </p>
-        </div>
-    </>
-  )
-}
+    <div className={`side preview ${showDisplay ? "show" : ""}`}>
+      <button className="button drag-up outline" onClick={()=>{
+        setShowDisplay(!showDisplay)
+      }}>
+        <FaChevronUp />
+      </button>
+      {code?.html ? <div className="iframe-holder">
+        <iframe
+          title="Code Preview"
+          srcDoc={`
+            <html>
+              <head>
+                <style>${code.css}</style>
+              </head>
+              <body>
+                ${code.html}
+                <script>${code.js}</script>
+              </body>
+            </html>
+          `}
+          style={{ width: '100%', height: '100%', border: 'none' }}
+        />
+      </div> :
+      <p>
+        ...
+      </p>}
+    </div>
+  );
+};
 
-export default CodePreview
+export default CodePreview;
