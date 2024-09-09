@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <Head>
         <title>CodE || home</title>
-        <meta name="description" content="Bytegen CodEditor -> Html, Css, Javascript editor and live preview" />
+        <meta name="description" content="Bytegen CodeEditor -> Html, Css, Javascript editor and live preview" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

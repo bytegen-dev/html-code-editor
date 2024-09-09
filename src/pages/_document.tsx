@@ -4,8 +4,9 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta property="og:title" content="CodE" />
-        <meta property="og:description" content="Bytegen CodEditor -> Html, Css, Javascript editor and live preview" />
+        <meta property="og:description" content="Bytegen CodeEditor -> Html, Css, Javascript editor and live preview" />
         <meta property="og:image" content="https://bytegen-code.vercel.app/logo.png" />
         <meta property="og:url" content="https://bytegen-code.vercel.app" />
         <meta property="og:site_name" content="CodE" />
