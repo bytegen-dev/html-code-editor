@@ -9,8 +9,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Bytegen Code Editor</title>
-        <meta name="description" content="Html, Css, Javascript editor and live preview" />
+        <title>CodeE || home</title>
+        <meta name="description" content="Bytegen Code Editor -> Html, Css, Javascript editor and live preview" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -19,12 +19,12 @@ export default function Home() {
       >
         <section className="heading">
           <p>
-            welcome dev<span className="animate">_</span>
+            hello world<span className="animate">_</span>
           </p>
         </section>
         <section>
           <h1>
-            minimal <span>Code</span> Editor
+            <span>CodeE</span>ditor
           </h1>
         </section>
         <section className="languages">

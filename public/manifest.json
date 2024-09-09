@@ -1,0 +1,14 @@
+{
+  "name": "Bytegen Code Editor",
+  "short_name": "CodeE",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#050505",
+  "background_color": "#050505",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "type": "image/png"
+    }
+  ]
+}

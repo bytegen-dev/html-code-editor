@@ -112,7 +112,7 @@ const CodePage = () => {
   return (
     <>
       <Head>
-        <title>Code</title>
+        <title>CodE || editor.</title>
       </Head>
       <div className='page code'>
         <div className="top">
