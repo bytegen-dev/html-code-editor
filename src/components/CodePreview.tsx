@@ -17,11 +17,6 @@ const CodePreview: React.FC<{ code: { css: string; html: string; js: string } }>
     setError(error);
   };
 
-  const clickedButtonLol = () => {
-    console.log("it works")
-    setError(error);
-  };
-
   useEffect(() => {
     const handleMessage = (event:any) => {
       if (event.data.type === "errorFound") {
@@ -63,13 +58,12 @@ const CodePreview: React.FC<{ code: { css: string; html: string; js: string } }>
               <body>
                 ${code.html}
                 <script>
-                  // Catching any runtime errors and syntax errors
                   window.onerror = function(message, source, lineno, colno, error) {
                     window.parent.postMessage(
                       { type: 'errorFound', message, source, lineno, colno, error: error?.message || 'Unknown Error' },
                       '*'
                     );
-                    return true; // Prevent the default browser error handling
+                    return true;
                   };
 
                   window.addEventListener('error', function(event) {
@@ -79,11 +73,9 @@ const CodePreview: React.FC<{ code: { css: string; html: string; js: string } }>
                     );
                   });
 
-                  // Your actual code
                   try {
                     ${code.js}
                   } catch (error) {
-                    // Catch any errors within the code execution
                     window.parent.postMessage({ type: 'errorFound', error: error.message }, '*');
                   }
                 </script>
