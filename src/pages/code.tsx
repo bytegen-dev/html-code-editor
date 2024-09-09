@@ -81,7 +81,7 @@ const CodePage = () => {
       100% { transform: rotate(360deg); }
     }`,
     js: `function clickButton() {
-    window.parent.postMessage("buttonClicked", "*");
+      alert("Hi. Follow me on Twitter @bytegen_dev")
     }
 
     const clickMeButton = document.getElementById("click-me");
