@@ -83,16 +83,26 @@ const CodePage = () => {
   const handleExport = async () => {
     setIsExporting(true);
     const zip = new JSZip();
-    zip.file("index.html", code.html);
+
+    // Modify the HTML content to include links to CSS and JS files
+    const modifiedHtml = code.html.replace('</head>', `
+    <link rel="stylesheet" href="styles.css">
+</head>
+`).replace('</body>', `
+  <script src="script.js"></script>
+</body>
+`);
+
+    zip.file("index.html", modifiedHtml);
     zip.file("styles.css", code.css);
     zip.file("script.js", code.js);
 
     const content = await zip.generateAsync({ type: "blob" });
     saveAs(content, "codebase.zip");
 
-    setTimeout(()=>{
+    setTimeout(() => {
       setIsExporting(false);
-    }, 2000)
+    }, 2000);
   };
 
   return (
